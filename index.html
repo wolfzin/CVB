@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>CVB – Centro Veterinário Brusque | Demo WolfStudio</title>
+<meta name="description" content="Demo comercial WolfStudio — Centro Veterinário Brusque (CVB). Não é o site oficial.">
+<meta name="robots" content="noindex,nofollow">
+<meta name="theme-color" content="#0c2f2a">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=Figtree:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --pine:#0c2f2a;--pine2:#144a42;--teal:#0f8b78;--mint:#e6f3ee;--paper:#f6faf8;
+  --ink:#10312c;--muted:#546d67;--line:#d3e5df;--sun:#f4b942;--sunbg:#fff6df;--wa:#1faa54;
+  --display:"Bricolage Grotesque","Trebuchet MS",system-ui,sans-serif;
+  --body:"Figtree","Segoe UI",system-ui,-apple-system,sans-serif;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;scroll-padding-top:76px}
+body{font-family:var(--body);background:var(--paper);color:var(--ink);line-height:1.6;-webkit-font-smoothing:antialiased;padding-bottom:64px}
+a{color:inherit;text-decoration:none}
+:focus-visible{outline:3px solid var(--sun);outline-offset:2px;border-radius:6px}
+.wrap{width:min(1120px,92%);margin:0 auto}
+h1,h2,h3{font-family:var(--display);line-height:1.1;letter-spacing:-.02em}
+svg.i{width:1.25em;height:1.25em;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round;flex:none}
+
+.demo{background:var(--pine);color:#a9d8cc;font-size:.8rem;text-align:center;padding:.4rem 1rem}
+.demo b{color:#fff;font-weight:700}
+
+header{position:sticky;top:0;z-index:40;background:rgba(246,250,248,.9);backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
+.nav{display:flex;align-items:center;justify-content:space-between;height:68px;gap:1rem}
+.logo{display:flex;align-items:center;gap:.7rem}
+.mark{width:42px;height:42px;border-radius:50%;background:var(--pine);color:var(--sun);display:grid;place-items:center;font:800 .82rem var(--display);letter-spacing:.02em}
+.logo strong{font:700 1.02rem var(--display);display:block;line-height:1.1}
+.logo span{font-size:.75rem;color:var(--muted)}
+.links{display:flex;align-items:center;gap:1.6rem;font-weight:500;font-size:.95rem}
+.links a:not(.btn):hover{color:var(--teal)}
+.menu{display:none;background:none;border:1px solid var(--line);border-radius:10px;width:44px;height:44px;cursor:pointer;color:var(--ink)}
+
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:.5rem;padding:.85rem 1.35rem;border-radius:12px;font-weight:700;font-size:.95rem;border:1.5px solid transparent;cursor:pointer;transition:background .2s,transform .2s}
+.btn:active{transform:scale(.98)}
+.btn-wa{background:var(--wa);color:#fff}.btn-wa:hover{background:#178c45}
+.btn-line{border-color:var(--pine);color:var(--pine)}.btn-line:hover{background:var(--pine);color:#fff}
+.btn-dark{background:var(--pine);color:#fff}.btn-dark:hover{background:var(--pine2)}
+
+.hero{padding:4.5rem 0 4rem;background:var(--paper)}
+.hero-grid{display:grid;grid-template-columns:1.2fr .8fr;gap:3.5rem;align-items:center}
+.hero h1{font-size:clamp(2.3rem,5.4vw,4rem);font-weight:800;margin-bottom:1.2rem;max-width:14ch}
+.lead{font-size:1.12rem;color:var(--muted);max-width:34rem;margin-bottom:1.8rem}
+.cta{display:flex;flex-wrap:wrap;gap:.7rem}
+.since{margin-top:1.8rem;display:flex;flex-wrap:wrap;gap:.5rem 1.4rem;color:var(--muted);font-size:.9rem}
+.since span{display:flex;align-items:center;gap:.45rem}
+.since svg{color:var(--teal)}
+
+.status{background:var(--pine);color:#d8efe8;border-radius:28px;padding:1.8rem;position:relative;box-shadow:0 30px 60px -30px rgba(12,47,42,.55)}
+.now{display:flex;align-items:center;gap:.7rem;font:700 1.5rem var(--display);color:#fff;margin-bottom:.2rem}
+.dot{width:12px;height:12px;border-radius:50%;background:#5ee0a0;box-shadow:0 0 0 0 rgba(94,224,160,.6);animation:pulse 2.2s infinite}
+.status.closed .dot{background:var(--sun);animation:none}
+@keyframes pulse{70%{box-shadow:0 0 0 10px rgba(94,224,160,0)}100%{box-shadow:0 0 0 0 rgba(94,224,160,0)}}
+.next{font-size:.95rem;color:#a9d8cc;margin-bottom:1.3rem}
+.hours{list-style:none;border-top:1px solid rgba(255,255,255,.14)}
+.hours li{display:flex;justify-content:space-between;padding:.7rem 0;border-bottom:1px solid rgba(255,255,255,.14);font-size:.95rem}
+.hours li.today{color:#fff;font-weight:700}
+.hours li.today span:first-child::after{content:" (hoje)";font-weight:400;color:var(--sun)}
+.tele{margin-top:1.3rem;background:var(--sun);color:#3a2900;border-radius:16px;padding:1rem 1.1rem;display:flex;gap:.8rem;align-items:center}
+.tele small{display:block;font-size:.78rem;opacity:.8}
+.tele b{font:800 1.15rem var(--display)}
+
+section{padding:5rem 0}
+.head{max-width:40rem;margin-bottom:2.6rem}
+.head h2{font-size:clamp(1.8rem,3.6vw,2.6rem);font-weight:800;margin-bottom:.7rem}
+.head p{color:var(--muted);font-size:1.05rem}
+
+.services{background:#fff;border-block:1px solid var(--line)}
+.svc-list{display:grid;grid-template-columns:1fr 1fr;column-gap:3.5rem}
+.svc{display:grid;grid-template-columns:52px 1fr;gap:1.1rem;padding:1.5rem 0;border-top:1px solid var(--line)}
+.svc .ic{width:52px;height:52px;border-radius:16px;background:var(--mint);color:var(--teal);display:grid;place-items:center;font-size:1.3rem}
+.svc h3{font-size:1.2rem;font-weight:700;margin-bottom:.25rem}
+.svc p{color:var(--muted);font-size:.97rem}
+.svc.big{grid-column:1/-1;background:var(--sunbg);border:0;border-radius:20px;padding:1.5rem;margin-top:1rem}
+.svc.big .ic{background:var(--sun);color:#3a2900}
+
+.spec{display:flex;flex-wrap:wrap;gap:.7rem}
+.spec span{background:#fff;border:1.5px solid var(--line);border-radius:999px;padding:.7rem 1.2rem;font-weight:600;font-size:1rem;transition:border-color .2s,background .2s}
+.spec span:hover{border-color:var(--teal);background:var(--mint)}
+.note{margin-top:1.4rem;color:var(--muted);font-size:.95rem}
+
+.where{background:var(--pine);color:#d8efe8}
+.where .head p{color:#a9d8cc}
+.where h2{color:#fff}
+.where-grid{display:grid;grid-template-columns:.9fr 1.1fr;gap:2.5rem;align-items:stretch}
+.info{list-style:none}
+.info li{display:grid;grid-template-columns:28px 1fr;gap:.9rem;padding:1.1rem 0;border-top:1px solid rgba(255,255,255,.14)}
+.info svg{color:var(--sun);margin-top:.15rem}
+.info small{display:block;color:#8cc2b4;font-size:.82rem}
+.info a,.info b{color:#fff;font-weight:700;font-size:1.05rem;overflow-wrap:anywhere}
+.info a:hover{color:var(--sun)}
+.map{border-radius:24px;overflow:hidden;min-height:340px;background:var(--pine2);border:1px solid rgba(255,255,255,.14)}
+.map iframe{width:100%;height:100%;min-height:340px;border:0;display:block;filter:saturate(.85)}
+
+.final{text-align:center;padding:5rem 0}
+.final h2{font-size:clamp(1.9rem,4vw,2.9rem);font-weight:800;max-width:20ch;margin:0 auto .8rem}
+.final p{color:var(--muted);max-width:32rem;margin:0 auto 1.7rem}
+.final .cta{justify-content:center}
+
+footer{background:var(--pine);color:#8cc2b4;padding:1.8rem 0;font-size:.85rem}
+footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:.5rem 2rem}
+footer b{color:#fff}
+
+.bar{display:none}
+@media (max-width:900px){
+  .hero-grid,.where-grid,.svc-list{grid-template-columns:1fr}
+  .hero{padding:2.8rem 0 3rem}.hero-grid{gap:2.2rem}
+  section{padding:3.6rem 0}
+  .menu{display:grid;place-items:center}
+  .links{display:none;position:absolute;left:0;right:0;top:100%;flex-direction:column;align-items:stretch;gap:0;background:var(--paper);border-bottom:1px solid var(--line);padding:.6rem 4%}
+  .links.open{display:flex}
+  .links a{padding:.85rem 0;border-bottom:1px solid var(--line)}
+  .links .btn{margin-top:.8rem;border:0}
+  .bar{display:grid;grid-template-columns:1fr 1fr;gap:.6rem;position:fixed;inset:auto 0 0 0;z-index:50;padding:.6rem .8rem calc(.6rem + env(safe-area-inset-bottom,0px));background:rgba(246,250,248,.95);backdrop-filter:blur(10px);border-top:1px solid var(--line)}
+  .bar .btn{padding:.75rem}
+}
+@media (prefers-reduced-motion:reduce){.dot{animation:none}html{scroll-behavior:auto}.btn{transition:none}}
+</style>
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="plus" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></symbol>
+  <symbol id="blade" viewBox="0 0 24 24"><path d="M4 20 16 8l4 4L8 20zM14 10l2 2"/></symbol>
+  <symbol id="pulse" viewBox="0 0 24 24"><path d="M3 12h4l3-8 4 16 3-8h4"/></symbol>
+  <symbol id="drop" viewBox="0 0 24 24"><path d="M12 3s6 6.5 6 11a6 6 0 0 1-12 0c0-4.5 6-11 6-11z"/></symbol>
+  <symbol id="bed" viewBox="0 0 24 24"><path d="M3 18V7M3 14h18v4M21 14v-2a3 3 0 0 0-3-3h-7v5"/></symbol>
+  <symbol id="phone" viewBox="0 0 24 24"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2z"/></symbol>
+  <symbol id="pin" viewBox="0 0 24 24"><path d="M12 21s7-6 7-11a7 7 0 0 0-14 0c0 5 7 11 7 11z"/><circle cx="12" cy="10" r="2.5"/></symbol>
+  <symbol id="mail" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></symbol>
+  <symbol id="clock" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></symbol>
+  <symbol id="menu" viewBox="0 0 24 24"><path d="M4 7h16M4 12h16M4 17h16"/></symbol>
+  <symbol id="wa" viewBox="0 0 24 24"><path d="M4 20l1.3-4.2A8 8 0 1 1 8.4 18.8L4 20z"/><path d="M9 9c0 3 3 6 6 6l1-1.5-2-1-1 .6c-1-.4-1.7-1.1-2.1-2.100l.6-1-1-2z"/></symbol>
+</svg>
+
+<div class="demo"><b>Demo comercial WolfStudio</b> — proposta de site próprio. Não é o site oficial do CVB.</div>
+
+<header>
+  <div class="wrap nav">
+    <a class="logo" href="#topo" aria-label="CVB – início">
+      <div class="mark">CVB</div>
+      <div><strong>Centro Veterinário Brusque</strong><span>Saúde e bem-estar animal</span></div>
+    </a>
+    <button class="menu" id="menuBtn" aria-label="Abrir menu" aria-expanded="false"><svg class="i"><use href="#menu"/></svg></button>
+    <nav class="links" id="links">
+      <a href="#servicos">Serviços</a>
+      <a href="#especialidades">Especialidades</a>
+      <a href="#local">Como chegar</a>
+      <a class="btn btn-wa" href="https://wa.me/5547997357309?text=Ol%C3%A1%20CVB%2C%20gostaria%20de%20agendar%20um%20atendimento." target="_blank" rel="noopener"><svg class="i"><use href="#wa"/></svg>Agendar</a>
+    </nav>
+  </div>
+</header>
+
+<main id="topo">
+  <div class="hero">
+    <div class="wrap hero-grid">
+      <div>
+        <h1>Cuidado completo para o seu pet, do exame à cirurgia</h1>
+        <p class="lead">Consultas, exames de imagem, cirurgias e internação em um só endereço no Centro de Brusque, com teleplantão para emergências fora do horário.</p>
+        <div class="cta">
+          <a class="btn btn-wa" href="https://wa.me/5547997357309?text=Ol%C3%A1%20CVB%2C%20gostaria%20de%20agendar%20um%20atendimento." target="_blank" rel="noopener"><svg class="i"><use href="#wa"/></svg>Agendar pelo WhatsApp</a>
+          <a class="btn btn-line" href="tel:4732125057"><svg class="i"><use href="#phone"/></svg>(47) 3212-5057</a>
+        </div>
+        <div class="since">
+          <span><svg class="i"><use href="#pin"/></svg>Rua Pedro Werner, 94 — Centro II</span>
+          <span><svg class="i"><use href="#plus"/></svg>Cães e gatos</span>
+        </div>
+      </div>
+
+      <aside class="status" id="status" aria-live="polite">
+        <div class="now"><i class="dot"></i><span id="nowTxt">Verificando horário…</span></div>
+        <p class="next" id="nextTxt">Atendimento de segunda a sábado.</p>
+        <ul class="hours">
+          <li data-d="1,2,3,4,5"><span>Segunda a sexta</span><span>09h às 18h30</span></li>
+          <li data-d="6"><span>Sábado</span><span>09h às 12h</span></li>
+          <li data-d="0"><span>Domingo</span><span>Teleplantão</span></li>
+        </ul>
+        <a class="tele" href="tel:47997357309">
+          <svg class="i" style="font-size:1.6rem"><use href="#phone"/></svg>
+          <div><small>Teleplantão de emergências</small><b>(47) 99735-7309</b></div>
+        </a>
+      </aside>
+    </div>
+  </div>
+
+  <section class="services" id="servicos">
+    <div class="wrap">
+      <div class="head">
+        <h2>Tudo o que o seu pet precisa, sem sair do lugar</h2>
+        <p>Do diagnóstico ao pós-operatório, o atendimento fica na mesma equipe e no mesmo endereço.</p>
+      </div>
+      <div class="svc-list">
+        <article class="svc"><div class="ic"><svg class="i"><use href="#plus"/></svg></div><div><h3>Consultas gerais e com especialistas</h3><p>Avaliação clínica, orientação ao tutor e acompanhamento contínuo.</p></div></article>
+        <article class="svc"><div class="ic"><svg class="i"><use href="#blade"/></svg></div><div><h3>Cirurgias</h3><p>Cirurgia geral, ortopédica e neurológica.</p></div></article>
+        <article class="svc"><div class="ic"><svg class="i"><use href="#pulse"/></svg></div><div><h3>Exames de imagem</h3><p>Raio-X e ultrassonografia para um diagnóstico preciso.</p></div></article>
+        <article class="svc"><div class="ic"><svg class="i"><use href="#drop"/></svg></div><div><h3>Exames laboratoriais</h3><p>Exames de sangue e demais análises para apoiar o diagnóstico.</p></div></article>
+        <article class="svc"><div class="ic"><svg class="i"><use href="#bed"/></svg></div><div><h3>Internação</h3><p>Monitoramento e cuidados contínuos quando o pet precisa de mais atenção.</p></div></article>
+        <article class="svc big"><div class="ic"><svg class="i"><use href="#phone"/></svg></div><div><h3>Teleplantão de emergências</h3><p>Fora do horário de atendimento, chame pelo (47) 99735-7309 e receba orientação sobre o que fazer.</p></div></article>
+      </div>
+    </div>
+  </section>
+
+  <section id="especialidades">
+    <div class="wrap">
+      <div class="head">
+        <h2>Especialidades para casos que pedem um olhar mais próximo</h2>
+        <p>Quando o caso exige, o pet é atendido por quem conhece a área a fundo.</p>
+      </div>
+      <div class="spec">
+        <span>Ortopedia</span><span>Neurologia</span><span>Oftalmologia</span><span>Dermatologia</span><span>Cardiologia</span><span>Oncologia</span><span>Odontologia</span><span>Medicina felina</span>
+      </div>
+      <p class="note">Consulte a disponibilidade de cada especialidade pelo WhatsApp.</p>
+    </div>
+  </section>
+
+  <section class="where" id="local">
+    <div class="wrap">
+      <div class="head">
+        <h2>Fácil de encontrar, no Centro de Brusque</h2>
+        <p>Fale com a equipe antes de sair de casa: a gente orienta o que levar.</p>
+      </div>
+      <div class="where-grid">
+        <ul class="info">
+          <li><svg class="i"><use href="#pin"/></svg><div><small>Endereço</small><b>Rua Pedro Werner, 94<br>Centro II, Brusque/SC</b></div></li>
+          <li><svg class="i"><use href="#phone"/></svg><div><small>Clínica</small><a href="tel:4732125057">(47) 3212-5057</a></div></li>
+          <li><svg class="i"><use href="#wa"/></svg><div><small>WhatsApp e teleplantão</small><a href="https://wa.me/5547997357309" target="_blank" rel="noopener">(47) 99735-7309</a></div></li>
+          <li><svg class="i"><use href="#mail"/></svg><div><small>E-mail</small><a href="mailto:centrovetbrusque@gmail.com">centrovetbrusque@gmail.com</a></div></li>
+        </ul>
+        <div class="map">
+          <iframe title="Mapa do Centro Veterinário Brusque" loading="lazy" referrerpolicy="no-referrer-when-downgrade" src="https://www.google.com/maps?q=Rua+Pedro+Werner,+94,+Brusque,+SC&output=embed"></iframe>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="final">
+    <div class="wrap">
+      <h2>Conte o que o seu pet está sentindo</h2>
+      <p>Envie o nome do pet, a espécie e o motivo do atendimento. A equipe responde e combina o melhor horário.</p>
+      <div class="cta">
+        <a class="btn btn-wa" href="https://wa.me/5547997357309?text=Ol%C3%A1%20CVB%2C%20quero%20agendar%20atendimento." target="_blank" rel="noopener"><svg class="i"><use href="#wa"/></svg>Agendar pelo WhatsApp</a>
+        <a class="btn btn-dark" href="tel:4732125057"><svg class="i"><use href="#phone"/></svg>Ligar para a clínica</a>
+      </div>
+    </div>
+  </div>
+</main>
+
+<footer>
+  <div class="wrap">
+    <span><b>Centro Veterinário Brusque</b> · Rua Pedro Werner, 94 · Brusque/SC</span>
+    <span>Demo criada pela WolfStudio</span>
+  </div>
+</footer>
+
+<div class="bar">
+  <a class="btn btn-wa" href="https://wa.me/5547997357309?text=Ol%C3%A1%20CVB%2C%20gostaria%20de%20agendar%20um%20atendimento." target="_blank" rel="noopener"><svg class="i"><use href="#wa"/></svg>WhatsApp</a>
+  <a class="btn btn-line" href="tel:4732125057"><svg class="i"><use href="#phone"/></svg>Ligar</a>
+</div>
+
+<script>
+const btn=document.getElementById('menuBtn'),nav=document.getElementById('links');
+btn.addEventListener('click',()=>{const o=nav.classList.toggle('open');btn.setAttribute('aria-expanded',o)});
+nav.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{nav.classList.remove('open');btn.setAttribute('aria-expanded',false)}));
+
+// Horário de atendimento em tempo real (fuso de Brasília)
+(function(){
+  const sched={0:null,1:[540,1110],2:[540,1110],3:[540,1110],4:[540,1110],5:[540,1110],6:[540,720]};
+  const names=['domingo','segunda','terça','quarta','quinta','sexta','sábado'];
+  const fmt=m=>{const h=Math.floor(m/60),mm=m%60;return String(h).padStart(2,'0')+'h'+(mm?String(mm).padStart(2,'0'):'')};
+  let d,min;
+  try{
+    const p=new Intl.DateTimeFormat('en-US',{timeZone:'America/Sao_Paulo',weekday:'short',hour:'numeric',minute:'numeric',hour12:false}).formatToParts(new Date());
+    const g=t=>p.find(x=>x.type===t).value;
+    d=['Sun','Mon','Tue','Wed','Thu','Fri','Sat'].indexOf(g('weekday'));
+    min=(parseInt(g('hour'))%24)*60+parseInt(g('minute'));
+  }catch(e){const n=new Date();d=n.getDay();min=n.getHours()*60+n.getMinutes()}
+  const s=sched[d],open=s&&min>=s[0]&&min<s[1];
+  const box=document.getElementById('status'),now=document.getElementById('nowTxt'),next=document.getElementById('nextTxt');
+  document.querySelectorAll('.hours li').forEach(li=>{if(li.dataset.d.split(',').includes(String(d)))li.classList.add('today')});
+  if(open){now.textContent='Aberto agora';next.textContent='Atendemos até às '+fmt(s[1])+' hoje.'}
+  else{
+    box.classList.add('closed');now.textContent='Fechado agora';
+    let k=(s&&min<s[0])?0:1,nd=d;
+    if(k===1){do{nd=(nd+1)%7}while(!sched[nd])}
+    const when=k===0?'hoje':(nd===(d+1)%7?'amanhã':names[nd]);
+    next.textContent='Abrimos '+when+' às '+fmt(sched[nd][0])+'. Em urgência, use o teleplantão.';
+  }
+})();
+</script>
+</body>
+</html>
